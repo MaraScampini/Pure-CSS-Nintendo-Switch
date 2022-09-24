@@ -1,31 +1,42 @@
 :root {
+    /* COLORES */
     --blue: #3cc2ef;
     --red: #ed6077;
     --grey: #666b80;
     --black: #402f44;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: aqua;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 0 0 0;
+    font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+/* CUERPO DE LA SWITCH */
 
 .container {
     width: 70vw;
     height: 30vw;
-    background-color: pink;
     display: flex;
 }
+
+/* JOYCONS */
 
 .container-joycon {
     width: 12vw;
     height: 30vw;
     z-index: 2;
     background-color: lightblue;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #joycon-left {
@@ -38,9 +49,88 @@ body {
     background-color: var(--red);
 }
 
+/* CONTENEDOR DE LAS BOTONERAS */
+
+.container-joycon-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2Fr 5fr 5fr 2fr;
+    width: 12vw;
+    height: 25vw;
+    /* background-color: rgb(255, 145, 0); */
+    padding: 0 0 4vw 0;
+}
+
+/* BOTONES - Y + */
+
+.joycon-buttons-minplus {
+    grid-row: 1/2;
+    display: flex;
+    font-weight:900;
+    cursor: pointer;
+    color: var(--black);
+}
+
+#minus {
+    grid-column: 2/3;
+    font-size: calc(0.5em + 4vw);
+    line-height: 0.25em;
+    justify-content: right;
+    padding: 0 0.3em 0 0;
+}
+
+#plus {
+    grid-column: 1/2;
+    font-size: calc(0.5em + 3vw);
+    line-height: 0.75em;
+    justify-content: left;
+    padding: 0 0 0 0.3em;
+}
+
+/* JOYSTICKS */
+
+.joycon-buttons-joystick {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#joystick-left {
+    background-color: var(--black);
+    width: 5vw;
+    height: 5vw;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#joystick-left:active {
+    box-shadow: none;
+}
+
+.joystick-right {
+    grid-row: 3/4;
+}
+
+#joystick-right {
+    background-color: var(--black);
+    width: 5vw;
+    height: 5vw;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#joystick-right:active {
+    box-shadow: none;
+}
+
+/* PANTALLA */
+
 .container-screen {
     width: 46vw;
     height: 30vw;
     background-color: var(--black);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
