@@ -1,0 +1,46 @@
+:root {
+    --blue: #3cc2ef;
+    --red: #ed6077;
+    --grey: #666b80;
+    --black: #402f44;
+}
+
+body {
+    background-color: aqua;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+}
+
+.container {
+    width: 70vw;
+    height: 30vw;
+    background-color: pink;
+    display: flex;
+}
+
+.container-joycon {
+    width: 12vw;
+    height: 30vw;
+    z-index: 2;
+    background-color: lightblue;
+}
+
+#joycon-left {
+    border-radius: 7vw 0 0 7vw;
+    background-color: var(--blue);
+}
+
+#joycon-right {
+    border-radius: 0 7vw 7vw 0;
+    background-color: var(--red);
+}
+
+.container-screen {
+    width: 46vw;
+    height: 30vw;
+    background-color: var(--black);
+}
+
