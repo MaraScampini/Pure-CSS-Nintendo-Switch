@@ -4,10 +4,13 @@
     --red: #ed6077;
     --grey: #666b80;
     --black: #402f44;
+    --darkgray: #4f3b53;
+    --white: #ddd2e3;
 }
 
 * {
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
@@ -39,12 +42,16 @@ body {
 
 .buttons-LR {
     height: 6vw;
-    width: 10.75vw;
+    width: 9vw;
     z-index: 1;
     background-color: var(--black);
     margin-bottom: -5.5vw;
     margin-left: 1vw;
     margin-right: 1vw;
+}
+
+.buttons-LR:active {
+    transform: translateY(0.1vw)
 }
 
 #button-L {
@@ -96,8 +103,7 @@ body {
     display: flex;
     font-weight: 900;
     cursor: pointer;
-    user-select: none;
-    color: var(--black);
+    color: var(--darkgray);
 }
 
 #minus {
@@ -106,7 +112,7 @@ body {
     line-height: 0.25em;
     justify-content: right;
     padding: 0 0.3em 0 0;
-    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.5vh;
+    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.3vh;
 }
 
 #minus:active {
@@ -119,7 +125,7 @@ body {
     line-height: 0.75em;
     justify-content: left;
     padding: 0 0 0 0.3em;
-    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.5vh;
+    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.3vh;
 }
 
 #plus:active {
@@ -137,11 +143,12 @@ body {
 }
 
 #joystick-left {
-    background-color: var(--black);
+    background-color: var(--darkgray);
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.5vh 0.5vh 1vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.75vh 0.75vh 1vh;
+    margin-bottom: 1vw;
 }
 
 #joystick-left:active {
@@ -153,15 +160,157 @@ body {
 }
 
 #joystick-right {
-    background-color: var(--black);
+    background-color: var(--darkgray);
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.5vh 0.5vh 1vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.75vh 0.75vh 1vh;
+    margin-top: 1vw;
 }
 
 #joystick-right:active {
     box-shadow: none;
+}
+
+/* CRUCETAS */
+
+.joycon-buttons-round-container {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-round-grid {
+    width: 8vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.buttons-round {
+    background-color: var(--darkgray);
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+.buttons-round:active {
+    box-shadow: none;
+}
+
+.up {
+    grid-column: 2/3;
+}
+
+.left {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.right {
+    grid-row: 2/3;
+    grid-column: 3/4;
+}
+
+.down {
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+.letters {
+    color: var(--white);
+    font-size: 1.5vw;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border: 0.5vw solid transparent;
+}
+
+.triangle-up {
+    border-bottom: 1vw solid black;
+    margin-bottom: 0.75vw;
+}
+
+.triangle-left {
+    border-right: 1vw solid black;
+    margin-right: 0.75vw;
+}
+
+.triangle-right {
+    border-left: 1vw solid black;
+    margin-left: 0.75vw;
+}
+
+.triangle-down {
+    border-top: 1vw solid black;
+    margin-top: 0.75vw;
+}
+
+/* BOTONES INFERIORES */
+
+.joycon-buttons-down {
+    display: flex;
+
+}
+
+#buttons-down-left {
+    grid-column: 2/3;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 2vw 0 0;
+}
+
+.joycon-buttons-down-screenshot {
+    background-color: var(--darkgray);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 20%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.joycon-buttons-down-screenshot:active {
+    box-shadow: none;
+}
+
+#buttons-down-right {
+    justify-content: flex-start;
+    align-items:flex-end;
+    padding: 0 0 0 2vw;
+}
+
+.joycon-buttons-down-home {
+    background-color: var(--darkgray);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.joycon-buttons-down-home:active {
+    box-shadow: none;
+}
+
+#screenshot {
+    width: 1.25vw;
+    height: 1.25vw;
+    border-radius: 100%;
+    border: solid black 0.1em;
+}
+
+#home {
+    width: 1.15vw;
+    height: 1.15vw;
 }
 
 /* PANTALLA */
