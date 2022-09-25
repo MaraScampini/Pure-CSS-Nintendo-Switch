@@ -23,8 +23,36 @@ body {
 
 .container {
     width: 70vw;
-    height: 30vw;
+    height: 31vw;
+}
+
+.container-body {
     display: flex;
+}
+
+/* BOTONES SUPERIORES */
+
+.container-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons-LR {
+    height: 6vw;
+    width: 10.75vw;
+    z-index: 1;
+    background-color: var(--black);
+    margin-bottom: -5.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#button-L {
+    border-radius: 10vw 0 0 0;
+}
+
+#button-R {
+    border-radius: 0 10vw 0 0;
 }
 
 /* JOYCONS */
@@ -66,8 +94,9 @@ body {
 .joycon-buttons-minplus {
     grid-row: 1/2;
     display: flex;
-    font-weight:900;
+    font-weight: 900;
     cursor: pointer;
+    user-select: none;
     color: var(--black);
 }
 
@@ -77,6 +106,11 @@ body {
     line-height: 0.25em;
     justify-content: right;
     padding: 0 0.3em 0 0;
+    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.5vh;
+}
+
+#minus:active {
+    text-shadow: none;
 }
 
 #plus {
@@ -85,6 +119,11 @@ body {
     line-height: 0.75em;
     justify-content: left;
     padding: 0 0 0 0.3em;
+    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.5vh;
+}
+
+#plus:active {
+    text-shadow: none;
 }
 
 /* JOYSTICKS */
@@ -102,7 +141,7 @@ body {
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.5vh 0.5vh 1vh;
 }
 
 #joystick-left:active {
@@ -118,7 +157,7 @@ body {
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0.5vh 0.5vh 1vh;
 }
 
 #joystick-right:active {
