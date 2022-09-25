@@ -6,11 +6,14 @@
     --black: #402f44;
     --darkgray: #4f3b53;
     --white: #ddd2e3;
+    --black-shadow: rgba(0, 0, 0, 0.35);
+    --white-shadow: rgba(255, 255, 255, 0.15);
 }
 
 * {
     box-sizing: border-box;
     user-select: none;
+    cursor: default;
 }
 
 body {
@@ -20,12 +23,13 @@ body {
     align-items: center;
     margin: 0 0 0 0;
     font-family:'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--white);
 }
 
 /* CUERPO DE LA SWITCH */
 
 .container {
-    width: 70vw;
+    width: 75vw;
     height: 31vw;
 }
 
@@ -68,20 +72,20 @@ body {
     width: 12vw;
     height: 30vw;
     z-index: 2;
-    background-color: lightblue;
     display: flex;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #joycon-left {
     border-radius: 7vw 0 0 7vw;
     background-color: var(--blue);
+    box-shadow: var(--white-shadow) 1vw 1vw inset, rgba(0, 0, 0, 0.10) 0 -1vw 0.25vw inset, var(--black-shadow) 0px 1vw 1.5vw;
 }
 
 #joycon-right {
     border-radius: 0 7vw 7vw 0;
     background-color: var(--red);
+    box-shadow: rgba(0, 0, 0, 0.10) -1vw -1vw 0.25vw inset, var(--white-shadow) 0 1vw inset, var(--black-shadow) 0px 1vw 1.5vw;
 }
 
 /* CONTENEDOR DE LAS BOTONERAS */
@@ -102,7 +106,6 @@ body {
     grid-row: 1/2;
     display: flex;
     font-weight: 900;
-    cursor: pointer;
     color: var(--darkgray);
 }
 
@@ -112,7 +115,7 @@ body {
     line-height: 0.25em;
     justify-content: right;
     padding: 0 0.3em 0 0;
-    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.3vh;
+    text-shadow: var(--black-shadow) 0.3vh 0.3vh 0.3vh;
 }
 
 #minus:active {
@@ -125,7 +128,7 @@ body {
     line-height: 0.75em;
     justify-content: left;
     padding: 0 0 0 0.3em;
-    text-shadow: rgba(0, 0, 0, 0.25) 0.3vh 0.3vh 0.3vh;
+    text-shadow: var(--black-shadow) 0.3vh 0.3vh 0.3vh;
 }
 
 #plus:active {
@@ -139,15 +142,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 #joystick-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--darkgray);
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.75vh 0.75vh 1vh;
+    box-shadow: var(--black-shadow) 0.75vh 0.75vh 1vh, var(--white-shadow) 0.25vw 0.25vw 0.25vw inset;
     margin-bottom: 1vw;
 }
 
@@ -155,21 +160,42 @@ body {
     box-shadow: none;
 }
 
+#joystick-left-interior {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 100%;
+    border: inset var(--black-shadow) 0.1vw;
+    box-shadow: var(--black-shadow) 0.1vw 0.1vw inset, var(--white-shadow) 0.1vw 0.1vw 0.1vw;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(226, 224, 227, 0.15) 20%, rgba(64, 47, 68, 1) 100%);
+}
+
 .joystick-right {
     grid-row: 3/4;
 }
 
 #joystick-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--darkgray);
     width: 5vw;
     height: 5vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.75vh 0.75vh 1vh;
+    box-shadow: var(--black-shadow) 0.75vh 0.75vh 1vh , var(--white-shadow) 0.25vw 0.25vw 0.25vw inset;
     margin-top: 1vw;
 }
 
 #joystick-right:active {
     box-shadow: none;
+}
+
+#joystick-right-interior {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 100%;
+    border: inset var(--black-shadow) 0.1vw;
+    box-shadow: var(--black-shadow) 0.1vw 0.1vw inset, var(--white-shadow) 0.1vw 0.1vw 0.1vw;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(226, 224, 227, 0.15) 20%, rgba(64, 47, 68, 1) 100%);
 }
 
 /* CRUCETAS */
@@ -187,14 +213,14 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
 }
 
+
 .buttons-round {
-    background-color: var(--darkgray);
-    border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: default;
+    background-color: var(--darkgray);
+    border-radius: 100%;
+    box-shadow: var(--black-shadow) 0.25vw 0.25vw 0.25vw, var(--white-shadow) 0.25vw 0.25vw inset; 
 }
 
 .buttons-round:active {
@@ -266,14 +292,15 @@ body {
 }
 
 .joycon-buttons-down-screenshot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--darkgray);
     width: 2vw;
     height: 2vw;
     border-radius: 20%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: var(--black-shadow) 0.25vw 0.25vw 0.25vw, var(--white-shadow) 0.15vw 0.15vw inset;
+
 }
 
 .joycon-buttons-down-screenshot:active {
@@ -287,14 +314,15 @@ body {
 }
 
 .joycon-buttons-down-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--darkgray);
     width: 2vw;
     height: 2vw;
     border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0.25vw 0.25vw 0.25vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-shadow: var(--black-shadow) 0.25vw 0.25vw 0.25vw, var(--white-shadow) 0.15vw 0.15vw inset;
+
 }
 
 .joycon-buttons-down-home:active {
@@ -315,10 +343,46 @@ body {
 
 /* PANTALLA */
 
-.container-screen {
-    width: 46vw;
+.container-screen-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 51vw;
     height: 30vw;
     background-color: var(--black);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: var(--black-shadow) 0px 1vw 1.5vw;
+}
+
+.container-screen-notch {
+    width: 1.25vw;
+    height: 1.5vw;
+    background-color: var(--white);
+}
+
+#left-notch {
+    border-radius: 0 0 0.6vw 0;
+}
+
+#right-notch {
+    border-radius: 0 0 0 0.6vw;
+}
+
+.container-screen {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 45.5vw;
+    height: 27vw;
+    background-color: black;
+    margin: 1.5vw 0 0 0;
+    overflow: hidden;
+}
+
+.container-screen-interior {
+    z-index: 2;
+    width: 35vw;
+    height: 85vw;
+    background-color: var(--white-shadow);
+    rotate: 50deg;
 }
 
